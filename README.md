@@ -7,6 +7,12 @@
   </a>
 </p>
 
+# ICAREWOUNDS Annotator
+
+This is a fork of the CVAT project. It is customised with some scripts to deploy it with a nextcloud service.
+
+The nextcloud service is for allowing image upload by ICAREWOUND partners. Then the gradiant mantainers of the ICAREWOUNDS project will upload those images to CVAT so that the partners can then annotate.
+
 # Computer Vision Annotation Tool (CVAT)
 
 [![CI][ci-img]][ci-url]
@@ -151,7 +157,7 @@ For more information about the supported formats, see:
 <!--lint disable maximum-line-length-->
 
 | Annotation format                                                                                | Import | Export |
-|--------------------------------------------------------------------------------------------------| ------ | ------ |
+| ------------------------------------------------------------------------------------------------ | ------ | ------ |
 | [CVAT for images](https://docs.cvat.ai/docs/manual/advanced/xml_format/#annotation)              | ✔️     | ✔️     |
 | [CVAT for a video](https://docs.cvat.ai/docs/manual/advanced/xml_format/#interpolation)          | ✔️     | ✔️     |
 | [Datumaro](https://github.com/cvat-ai/datumaro)                                                  | ✔️     | ✔️     |

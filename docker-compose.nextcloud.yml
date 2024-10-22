@@ -1,0 +1,40 @@
+services:
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    environment:
+      - MYSQL_HOST=nextcloud_mysql
+      # - APACHE_DISABLE_REWRITE_IP=1
+      # - TRUSTED_PROXIES="172.18.0.17"
+    env_file:
+      - ./.nextcloud.env
+    volumes:
+      - nextcloud_data:/var/www/html
+    networks:
+      - cvat
+    depends_on:
+      - mysql
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.services.nextcloud.loadbalancer.server.port=80'
+      - 'traefik.http.routers.nextcloud.rule=Host(`files.icarewounds.gradiant.org`)'
+      - 'traefik.http.routers.nextcloud.entrypoints=websecure'
+      - 'traefik.http.routers.nextcloud.tls.certresolver=lets-encrypt'
+      # - 'traefik.http.routers.nextcloud.middlewares=nextcloud_redirectregex@docker'
+      # - 'traefik.http.middlewares.nextcloud_redirectregex.redirectregex.permanent=true'
+      # - 'traefik.http.middlewares.nextcloud_redirectregex.redirectregex.regex=https://(.*)/.well-known/(?:card|cal)dav'
+      # - 'traefik.http.middlewares.nextcloud_redirectregex.redirectregex.replacement=https://$${1}/remote.php/dav'
+
+  mysql:
+    image: mysql:8
+    container_name: nextcloud_mysql
+    env_file:
+      - ./.nextcloud.env
+    networks:
+      - cvat
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  nextcloud_data:
+  mysql_data:
