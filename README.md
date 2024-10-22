@@ -13,6 +13,13 @@ This is a fork of the CVAT project. It is customised with some scripts to deploy
 
 The nextcloud service is for allowing image upload by ICAREWOUND partners. Then the gradiant mantainers of the ICAREWOUNDS project will upload those images to CVAT so that the partners can then annotate.
 
+Relevant files are:
+
+- docker-compose.nextcloud.yml: this is used to deploy the nextcloud and to connect it to the traefik service deployed by CVAT.
+- .nextcloud_example.env: this env file contains example configuration that will be used by the both the nextcloud and the mysql service. It should be renamed ".nexcloud.env" and modified with the final deployment vars.
+- copy_files_to_fujin.sh: this script scp copies the relevant scripts to the OVH VPS to deploy the services there.
+- deploy_fujin.sh: this script sets env vars and runs docker compose with the relevant docker compose files to deploy al the relevant services.
+
 # Computer Vision Annotation Tool (CVAT)
 
 [![CI][ci-img]][ci-url]
