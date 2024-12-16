@@ -16,6 +16,7 @@ The nextcloud service is for allowing image upload by ICAREWOUND partners. Then 
 Relevant files are:
 
 - docker-compose.nextcloud.yml: this is used to deploy the nextcloud and to connect it to the traefik service deployed by CVAT.
+- docker-compose.https.yml: this is used to deploy the cvat server using https.
 - .nextcloud_example.env: this env file contains example configuration that will be used by the both the nextcloud and the mysql service. It should be renamed ".nexcloud.env" and modified with the final deployment vars.
 - copy_files_to_fujin.sh: this script scp copies the relevant scripts to the OVH VPS to deploy the services there.
 - deploy_fujin.sh: this script sets env vars and runs docker compose with the relevant docker compose files to deploy al the relevant services.

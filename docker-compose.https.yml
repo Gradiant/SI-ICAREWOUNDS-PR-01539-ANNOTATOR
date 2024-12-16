@@ -7,7 +7,7 @@ services:
     labels:
       - traefik.http.routers.cvat.entrypoints=websecure
       - traefik.http.routers.cvat.tls.certresolver=lets-encrypt
-      - 'traefik.http.middlewares.icarewounds_ips_whitelist.ipwhitelist.sourcerange=127.0.0.1/32, 193.144.32.66/30'
+      - 'traefik.http.middlewares.icarewounds_ips_whitelist.ipwhitelist.sourcerange=127.0.0.1/32, 193.144.32.66/30, 77.253.192.219, 178.43.105.209, 192.168.18.10'
       - 'traefik.http.routers.cvat.middlewares=icarewounds_ips_whitelist'
 
   cvat_ui:
